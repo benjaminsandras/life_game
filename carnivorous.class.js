@@ -1,6 +1,6 @@
-function carnivorous extends animal(){
+// function carnivorous extends animal(){
    
-    this.eat = function(vegetarian){
-    	vegetarian.hp = 0;
-    }
-}
+//     this.eat = function(vegetarian){
+//     	vegetarian.hp = 0;
+//     }
+// }

@@ -9,6 +9,6 @@ function Plant(hp, appearance, age)
     }
 
     this.reproduction = function(){
-        
+        new Plant
     }
 };
