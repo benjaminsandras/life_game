@@ -3,7 +3,12 @@ table,td,tr{
 	border-collapse: collapse;;
 }
 
-td{
+td,tr{
 	width: 2em;
 	height: 1em;
+	
+}
+canvas{
+	width: 100%;
+	height: auto;
 }
