@@ -13,5 +13,3 @@ function Animal(hp, appearance, sex, dmg, age, maturity)
 };
 
 
-var TRex = new Animal(150, "beau", "carnivorous", "pénis", 50, 35, true);
-console.log(TRex.move());

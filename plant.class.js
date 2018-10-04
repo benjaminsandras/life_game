@@ -1,4 +1,4 @@
-function Plant(hp, appearance, age)
+function Plants(hp, appearance, age)
 {
     this.hp = hp;
     this.appearance = appearance;
@@ -9,6 +9,6 @@ function Plant(hp, appearance, age)
     }
 
     this.reproduction = function(){
-        new Plant
+        new Plants
     }
 };
