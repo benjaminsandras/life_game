@@ -25,67 +25,78 @@ board(x,y);
 
 
 
-function getnewid(x,y){
-	console.log("coucou");
-	var diese = "#";
-	var b = "B";
-	var x1=x++;
-	var x2=x--;
-	var y1=y++;
-	var y2=y--;
-	var rand = Math.floor(Math.random() * Math.floor(4));
-	console.log(rand);
-	if(rand==0){
-		return diese + x1.toString() + b + y;
-		console.log(diese + x1.toString() + b + y);
 
-	console.log("coucou");
-	} 
-	else if(rand==1){
-		return diese + x2.toString() + b + y;
-		console.log(diese + x2.toString() + b + y);
+// console.log(getnewid(2,5));
 
-	console.log("coucou");
-	} 
-	else if(rand==2){
-		return diese + y1.toString() + b + x;
-		console.log(diese + y1.toString() + b + x);
+$('carnivorous.class.js', function(){
 
-	console.log("coucou");
-	} 
-	else if(rand==3){
-		return diese + y2.toString() + b + x;
-		console.log(diese + y2.toString() + b + x);
+		max=2;
+		min=1;
+		var x = (Math.floor(Math.random() * (max - min +1)) + min);
+		var y = (Math.floor(Math.random() * (max - min +1)) + min);
 
-	console.log("coucou");
-	} 
-}
+	function getnewid(x,y){
 
-console.log(getnewid(2,5));
+		var diese = "#";
+		var b = "B";
+		var rand = Math.floor(Math.random() * Math.floor(4));
+		console.log(x);
+		console.log(y);
 
-$('carnivorous.class.js', function()
-{
-
-function coucou()
-{
-	if (z==x){
-	 	$(z).empty();
-	 	z=y;	
-	 	$(z).append(TRex.appearance);
-
+		if(rand==0){
+			var disp = diese + (x+1).toString() + b + y;
+			$(disp).empty();
+			$(disp).append(TRex.appearance);
+			console.log(disp);
+		} 
+		else if(rand==1){
+			var disp = diese + (x-1).toString() + b + y;
+			$(disp).empty();
+			$(disp).append(TRex.appearance);
+			console.log(disp);
+		} 
+		else if(rand==2){
+			var disp = diese + x + b + (y+1).toString();
+			$(disp).empty();
+			$(disp).append(TRex.appearance);
+			console.log(disp);
+		} 
+		else if(rand==3){
+			var disp = diese + x + b + (y-1).toString();
+			$(disp).empty();
+			$(disp).append(TRex.appearance);
+			console.log(disp);
+		} 
 	}
-  
- 	else{
- 		$(z).empty();
- 		z=x;
- 		$(z).append(TRex.appearance);
- 	}
+	// function coucou(){
+		
+	// 	if (z==x){
+	//  		$(z).empty();
+	//  		z=y;	
+	//  		$(z).append(TRex.appearance);
 
-}
-setInterval(function(){getnewid(2,5);},3000);
+	// 	}
+  
+ // 		else{
+ // 			$(z).empty();
+ // 			z=x;
+ // 			$(z).append(TRex.appearance);
+ // 		}
+
+	// }
+	
+	console.log(x);
+	setInterval(function(){
+
+		getnewid(x,y);
+
+
+
+
+	},3000);
   	//$("#A16B14").css("background-color" , "red");
 
 	// console.log(TRex.move());
 	// console.log(TRex);
 	// console.log(TRex.eat());
-})
+});
