@@ -1,4 +1,4 @@
-function Animal(x,y,appearance,hp, sex, dmg, age, maturity)
+function Animal(x,y,appearance,hp, sex, dmg, age, maturity,regime)
 {
 	this.x = x;
 	this.y = y;
@@ -67,9 +67,10 @@ function Animal(x,y,appearance,hp, sex, dmg, age, maturity)
 
     this.move = function(){
     	$(start[2]).empty();
+    	// $(start[2]).data("carnivorous", 0);
         start =this.getid(start);
         $(start[2]).append(this.appearance);
-
+        
     }
 
 
