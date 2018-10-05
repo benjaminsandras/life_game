@@ -1,102 +1,51 @@
-
-
-var x = 15;
-var y = 25;
+var carnivorousapp = '<svg id="carnivorou" viewBox= "0 0 500 500" preserveAspectRatio="xMidYMid meet" x="0" y="0"><circle cx="250" cy="250" r="200" fill= "green" stroke-width="15" stroke="black"/></svg>';
+var vegetariansapp = '<svg id="vegetarian" viewBox= "0 0 500 500" preserveAspectRatio="xMidYMid meet" x="0" y="0"><circle cx="250" cy="250" r="200" fill= "pink" stroke-width="15" stroke="black"/></svg>';
+console.log(carnivorousapp);
+console.log(vegetariansapp);
+var boardWidth = 15;
+var boardHeight = 25;
 
 
 // fonction tableau
 
-function board (x, y) 
-{     
-	for (var i = 0; i < x; i++) 
-	{                   
-		$("#grid").append( '<tr id="'+i+'"></tr>');                     
-		for (var j = 0; j < y; j++) 
-		{                       
-			$("#grid tr:last-child").append( '<td id="'+i+'B'+j+'">'+'</td>' );
-		
+function board (boardWidth, boardHeight)
+{
+    for (var i = 0; i < boardWidth; i++)
+    {
+        $("#grid").append( '<tr id="'+i+'"></tr>');
+        for (var j = 0; j < boardHeight; j++)
+        {
+            $("#grid tr:last-child").append( '<td id="'+i+j+'">'+'</td>' );
+        
 
-		}          
-	}  
+        }
+    }
 }
 
-board(x,y);
+board(boardWidth,boardHeight);
+var x = 0;
+var y = 0;
+function shuffle(x,y){
+	var x = Math.floor(Math.random() * Math.floor(14));
+	var y = Math.floor(Math.random() * Math.floor(24));
+}
+
+shuffle(1,1);
+var TRex = new Carnivorous(x,y,carnivorousapp,150,"pénis", 50, 35, true);
+
+shuffle(1,1);
+var Diplodocus = new Vegetarians(x,y,vegetariansapp,500,"vulve", 20, 45, true);
 
 
 
-
-
-// console.log(getnewid(2,5));
-
-$('carnivorous.class.js', function(){
-
-		max=2;
-		min=1;
-		var x = (Math.floor(Math.random() * (max - min +1)) + min);
-		var y = (Math.floor(Math.random() * (max - min +1)) + min);
-
-	function getnewid(x,y){
-
-		var diese = "#";
-		var b = "B";
-		var rand = Math.floor(Math.random() * Math.floor(4));
-		console.log(x);
-		console.log(y);
-
-		if(rand==0){
-			var disp = diese + (x+1).toString() + b + y;
-			$(disp).empty();
-			$(disp).append(TRex.appearance);
-			console.log(disp);
-		} 
-		else if(rand==1){
-			var disp = diese + (x-1).toString() + b + y;
-			$(disp).empty();
-			$(disp).append(TRex.appearance);
-			console.log(disp);
-		} 
-		else if(rand==2){
-			var disp = diese + x + b + (y+1).toString();
-			$(disp).empty();
-			$(disp).append(TRex.appearance);
-			console.log(disp);
-		} 
-		else if(rand==3){
-			var disp = diese + x + b + (y-1).toString();
-			$(disp).empty();
-			$(disp).append(TRex.appearance);
-			console.log(disp);
-		} 
-	}
-	// function coucou(){
-		
-	// 	if (z==x){
-	//  		$(z).empty();
-	//  		z=y;	
-	//  		$(z).append(TRex.appearance);
-
-	// 	}
-  
- // 		else{
- // 			$(z).empty();
- // 			z=x;
- // 			$(z).append(TRex.appearance);
- // 		}
-
-	// }
+setInterval(function(){
 	
-	console.log(x);
-	setInterval(function(){
-
-		getnewid(x,y);
+	TRex.move();
+	Diplodocus.move();
 
 
+},500);
+  
 
 
-	},3000);
-  	//$("#A16B14").css("background-color" , "red");
 
-	// console.log(TRex.move());
-	// console.log(TRex);
-	// console.log(TRex.eat());
-});

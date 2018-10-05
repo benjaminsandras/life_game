@@ -23,3 +23,8 @@ table,td{
 	table-layout: fixed;
 	overflow: hidden;
 }
+
+#vegetarian
+{
+	background-color:red;
+}

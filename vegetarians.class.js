@@ -1,6 +1,6 @@
-function Vegetarians(hp, appearance, sex, dmg, age, maturity){
+function Vegetarians(x,y, appearance,hp, sex, dmg, age, maturity){
 
-   	Animal.call(this, hp, appearance, sex, dmg, age, maturity);
+   	Animal.call(this,x,y,appearance,hp, sex, dmg, age, maturity);
 
     this.eat = function(plant){
     	// Plant.hp = 0;
@@ -8,4 +8,4 @@ function Vegetarians(hp, appearance, sex, dmg, age, maturity){
     }
 }
 
-var diplodocus = new Vegetarians(500, "beau", "vulve", 20, 65, true);
+
