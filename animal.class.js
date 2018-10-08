@@ -1,5 +1,6 @@
-function Animal(x,y,appearance,hp, sex, dmg, age, maturity,regime)
-{
+function Animal(nam,x,y,appearance,hp, sex, dmg, age, maturity,regime)
+{	
+	this.nam = nam
 	this.x = x;
 	this.y = y;
 	this.appearance = appearance;
@@ -8,70 +9,75 @@ function Animal(x,y,appearance,hp, sex, dmg, age, maturity,regime)
     this.dmg = dmg;
     this.age = age;
     this.maturity = maturity;
+    this.regime = regime;
 
-    var start=[5,5,"#55"];
+    var pos=[this.x,this.y,"#" + this.x + this.y];
 
-    this.getid = function(Start){
+    this.getid = function(pos){
 
     	var rand = Math.floor(Math.random() * Math.floor(4));
     	
-		if(Start[1]<=0){
-			var number2 = Start[1]+1;
-			var number = Start[0];
+		if(pos[1]<=0){
+			var currenty = pos[1]+1;
+			var currentx = pos[0];
 		}
-		else if(Start[0]<=0){
-			var number = Start[0]+1;
-			var number2 = Start[1];
+		else if(pos[1]>=24){
+			var currenty = pos[1]-1;
+			var currentx = pos[0];
 		}
-		else if(Start[1]>=24){
-			var number2 = Start[1]-1;
-			var number = Start[0];
+		else if(pos[0]<=0){
+			var currentx = pos[0]+1;
+			var currenty = pos[1];
 		}
-		else if(Start[0]>=14){
-			var number = Start[0]-1;
-			var number2 = Start[1];
+		else if(pos[0]>=14){
+			var currentx = pos[0]-1;
+			var currenty = pos[1];
 		}
 
 		else
 		{
 	    	if(rand==0){
-	       		 var number=Start[0]+1;
-	       		 var number2=Start[1];
+	       		 var currentx=pos[0]+1;
+	       		 var currenty=pos[1];
 	       		  
 	    	}
 	    	else if(rand==1){
-	       		 var number=Start[0]-1;  	
-	       		 var number2=Start[1];  	
+	       		 var currentx=pos[0]-1;  	
+	       		 var currenty=pos[1];  	
 	       		 		    
 	       	}
 	    	else if(rand==2){
-	       		 var number2=Start[1]+1;
-	       		 var number=Start[0];
+	       		 var currenty=pos[1]+1;
+	       		 var currentx=pos[0];
 	       		 		      
 	    	}
 	    	else if(rand==3){
-	       		 var number2=Start[1]-1;
-	       		 var number=Start[0];
+	       		 var currenty=pos[1]-1;
+	       		 var currentx=pos[0];
 
 	    	}
 		}
-    	console.log("rand = " + rand);
+    	
+        var idPos="#"+currentx.toString() + currenty.toString();
+        var currentPos=[currentx,currenty,idPos];
 
-        var x = number.toString();
-        var y = number2.toString();
-        var res="#"+x+y;
-        var array=[number,number2,res];
-
-        return array;
+        return currentPos;
     }
 
+       	
     this.move = function(){
-    	$(start[2]).empty();
-    	// $(start[2]).data("carnivorous", 0);
-        start =this.getid(start);
-        $(start[2]).append(this.appearance);
-        
+    	$(pos[2]).empty();
+        pos =this.getid(pos);
+        $(pos[2]).append(this.appearance);
+        this.x = pos[0];
+        this.y = pos[1];
     }
+
+    // this.dead = function(this){
+   	// 	if(this.hp == 0){
+   	// 		array.splice(j, 1);
+   	// 	}
+   	// }
 
 
 };
