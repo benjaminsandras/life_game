@@ -11,7 +11,7 @@ function Animal(nam,x,y,appearance,hp, sex, dmg, age, maturity,regime)
     this.maturity = maturity;
     this.regime = regime;
 
-    var pos=[this.x,this.y,"#" + this.x + this.y];
+    var pos=[this.x,this.y,"#" + this.x +"b"+ this.y];
 
     this.getid = function(pos){
 
@@ -58,13 +58,12 @@ function Animal(nam,x,y,appearance,hp, sex, dmg, age, maturity,regime)
 	    	}
 		}
     	
-        var idPos="#"+currentx.toString() + currenty.toString();
+        var idPos="#"+currentx.toString() + "b" + currenty.toString();
         var currentPos=[currentx,currenty,idPos];
 
         return currentPos;
     }
 
-       	
     this.move = function(){
     	$(pos[2]).empty();
         pos =this.getid(pos);
@@ -72,13 +71,6 @@ function Animal(nam,x,y,appearance,hp, sex, dmg, age, maturity,regime)
         this.x = pos[0];
         this.y = pos[1];
     }
-
-    // this.dead = function(this){
-   	// 	if(this.hp == 0){
-   	// 		array.splice(j, 1);
-   	// 	}
-   	// }
-
 
 };
 
