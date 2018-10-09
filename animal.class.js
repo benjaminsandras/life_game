@@ -72,6 +72,25 @@ function Animal(nam,x,y,appearance,hp, sex, dmg, age, maturity,regime)
         this.y = pos[1];
     }
 
+    this.compare = function(arraycomp){
+		for(j=0;j<arraycomp.length;j++){
+		
+			if (arraycomp[j].x == this.x && arraycomp[j].y == this.y && arraycomp[j].regime != this.regime){
+          		if(this.regime == 1){
+		 			arraycomp.splice(j,1);
+		 			cmptVeggie--;
+		 			$('#displayVeggie').html(cmptVeggie);
+          		}
+          		else if(this.regime == 2){
+		 			arraycomp.splice(this,1);
+		 			cmptVeggie--;
+		 			$('#displayVeggie').html(cmptVeggie);
+          		}
+        	}
+		}
+		return arraycomp;		
+	}
+
 };
 
 

@@ -66,39 +66,20 @@ $('#newVeggie').click(function(){
 	$('#displayVeggie').html(cmptVeggie);
 });
 
-function compare(arraycomp){
-	for(i=0;i<arraycomp.length;i++){
-		for(j=0;j<arraycomp.length;j++){
-			if (arraycomp[i].x == arraycomp[j].x && arraycomp[i].y == arraycomp[j].y && arraycomp[i].regime != arraycomp[j].regime){
-          		if(arraycomp[i].regime == 1){
-		 			arraycomp.splice(j,1);
-		 			cmptVeggie--;
-		 			$('#displayVeggie').html(cmptVeggie);
-          		}
-          		else if(arraycomp[i].regime == 2){
-		 			arraycomp.splice(i,1);
-		 			cmptVeggie--;
-		 			$('#displayVeggie').html(cmptVeggie);
-          		}
-          	}
-		}
-	}		
-	
-	return arraycomp;
-}
-
 var world = [];
 
 $("#init").click(function(){
 	var int = setInterval(function(){
-		var world2 = [];
+		var majWorld = [];
 		
 		for(i=0;i<world.length;i++)
 		{
-			world2.push(world[i]);
-			world2[i].move();
+			majWorld.push(world[i]);
+			majWorld[i].move();
+			majWorld[i].compare(world);
+			
 		}	
-		world2 = compare(world);
+		world = majWorld;		
 			
 		$("#stop").click(function(){
 			clearInterval(int);
